@@ -98,3 +98,8 @@ func (l *VerificationLogic) incrVerificationCount(mobile string) error {
 	}
 	return l.svcCtx.BizRedis.Expireat(key, util.EndOfDay(time.Now()).Unix())
 }
+func delActivationCache(mobile string, rds *redis.Redis) error {
+	key := fmt.Sprintf(prefixActivation, mobile)
+	_, err := rds.Del(key)
+	return err
+}

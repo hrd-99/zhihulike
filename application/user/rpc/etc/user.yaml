@@ -4,3 +4,9 @@ Etcd:
   Hosts:
     - 192.168.81.128:2379
   Key: user.rpc
+DataSource: root:hrd999999@tcp(192.168.81.128:3306)/beyond_user?parseTime=true
+
+CacheRedis:
+  - Host: 192.168.81.128:6379
+    Pass:
+    Type: node
